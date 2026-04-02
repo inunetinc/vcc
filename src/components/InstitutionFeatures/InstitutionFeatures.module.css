@@ -1,0 +1,80 @@
+.section { background: #0f172b; padding: 112px 0; }
+.container { opacity: 0; }
+.animateIn { animation: fade-up 500ms ease-out forwards; }
+
+.header { text-align: left; margin-bottom: 56px; }
+.eyebrow { font-size: 12px; letter-spacing: 0.1em; color: #787878; text-transform: uppercase; font-weight: 600; display: block; margin-bottom: 16px; }
+.headline { font-size: 40px; font-weight: 600; color: #ffffff; margin: 0 0 16px 0; line-height: 1.2; }
+.sub { font-size: 17px; color: #94a3b8; margin: 0; max-width: 560px; line-height: 1.6; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.04);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.card {
+  background: #0f172b;
+  padding: 36px 32px;
+  transition: background 300ms ease;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.card:hover {
+  background: #131d30;
+}
+
+.card:hover .iconWrap {
+  color: var(--accent-orange);
+}
+
+.card:hover .cardTitle {
+  color: var(--accent-orange);
+}
+
+.iconWrap {
+  width: 32px; height: 32px;
+  display: flex; align-items: center; justify-content: center;
+  color: #475569;
+  margin-bottom: 24px;
+  transition: color 300ms ease;
+}
+
+.cardTitle {
+  font-size: 15px;
+  font-weight: 600;
+  color: #e2e8f0;
+  margin: 0 0 10px 0;
+  transition: color 300ms ease;
+}
+
+.cardDesc {
+  font-size: 13px;
+  color: #475569;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.animateIn .card:nth-child(1) { animation: fade-up 500ms ease-out 100ms forwards; opacity: 0; }
+.animateIn .card:nth-child(2) { animation: fade-up 500ms ease-out 150ms forwards; opacity: 0; }
+.animateIn .card:nth-child(3) { animation: fade-up 500ms ease-out 200ms forwards; opacity: 0; }
+.animateIn .card:nth-child(4) { animation: fade-up 500ms ease-out 250ms forwards; opacity: 0; }
+.animateIn .card:nth-child(5) { animation: fade-up 500ms ease-out 300ms forwards; opacity: 0; }
+.animateIn .card:nth-child(6) { animation: fade-up 500ms ease-out 350ms forwards; opacity: 0; }
+.animateIn .card:nth-child(7) { animation: fade-up 500ms ease-out 400ms forwards; opacity: 0; }
+.animateIn .card:nth-child(8) { animation: fade-up 500ms ease-out 450ms forwards; opacity: 0; }
+.animateIn .card:nth-child(9) { animation: fade-up 500ms ease-out 500ms forwards; opacity: 0; }
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 1024px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 768px) { .grid { grid-template-columns: 1fr; } .headline { font-size: 32px; } }

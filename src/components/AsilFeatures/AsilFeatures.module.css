@@ -1,0 +1,25 @@
+.section { background: #0f172b; padding: 112px 0; }
+.container { opacity: 0; }
+.animateIn { animation: fade-up 500ms ease-out forwards; }
+.header { text-align: left; margin-bottom: 56px; }
+.eyebrow { font-size: 12px; letter-spacing: 0.1em; color: #787878; text-transform: uppercase; font-weight: 600; display: block; margin-bottom: 16px; }
+.headline { font-size: 40px; font-weight: 600; color: #ffffff; margin: 0 0 12px 0; }
+.sub { font-size: 17px; color: #94a3b8; margin: 0; max-width: 500px; }
+
+.grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.04); border-radius: 4px; overflow: hidden;
+}
+
+.card { background: #0f172b; padding: 36px 32px; transition: background 300ms ease; }
+.card:hover { background: #131d30; }
+.card:hover .iconWrap { color: var(--accent-orange); }
+.card:hover .cardTitle { color: var(--accent-orange); }
+
+.iconWrap { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; color: #475569; margin-bottom: 24px; transition: color 300ms ease; }
+.cardTitle { font-size: 15px; font-weight: 600; color: #e2e8f0; margin: 0 0 10px 0; transition: color 300ms ease; }
+.cardDesc { font-size: 13px; color: #475569; line-height: 1.6; margin: 0; }
+
+@keyframes fade-up { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 1024px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 768px) { .grid { grid-template-columns: 1fr; } .headline { font-size: 32px; } }

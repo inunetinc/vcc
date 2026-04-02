@@ -1,0 +1,254 @@
+.section {
+  background: #0f172b;
+  padding: 112px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.container {
+  opacity: 0;
+}
+
+.animateIn {
+  animation: fade-up 500ms ease-out forwards;
+}
+
+/* ── Header ── */
+.headerBlock {
+  margin-bottom: 56px;
+}
+
+.eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: #787878;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  font-weight: 600;
+  display: block;
+}
+
+.headline {
+  font-size: 40px;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.accentText {
+  background: linear-gradient(135deg, var(--accent-orange) 0%, #FFD1A3 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.subheadline {
+  font-size: 17px;
+  color: var(--text-secondary);
+  max-width: 70%;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── Grid ── */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+/* ── Profile Card ── */
+.profileCard {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  padding: 28px;
+  transition: transform 300ms ease, box-shadow 300ms ease;
+}
+
+.profileCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
+}
+
+.profileHeader {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 4px;
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-orange) 0%, #FFD1A3 100%);
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.profileInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.profileName {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+}
+
+.verifiedBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: #10B981;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background: #e5e7eb;
+  margin: 20px 0;
+}
+
+.credentialList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.credentialItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  color: #374151;
+  font-weight: 500;
+  padding: 10px 12px;
+  border-radius: 4px;
+  background: #f9fafb;
+  border: 1px solid #f0f0f0;
+}
+
+.credentialItem svg {
+  color: #10B981;
+  flex-shrink: 0;
+}
+
+.actionRow {
+  display: flex;
+  gap: 10px;
+}
+
+.actionBtn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 0;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  color: #475569;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 250ms ease;
+}
+
+.actionBtn:hover {
+  background: #f0f0f0;
+  color: #0f172a;
+}
+
+/* ── Content Column ── */
+.contentColumn {
+  display: flex;
+  flex-direction: column;
+  padding-top: 8px;
+}
+
+.coreValue {
+  font-size: 16px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin: 0 0 32px 0;
+}
+
+.featureList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.featureItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 14px;
+  color: #A0A9B8;
+  line-height: 1.5;
+}
+
+.featureIcon {
+  color: var(--accent-orange);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.primaryBtn {
+  background: #ffffff;
+  color: #000000;
+  padding: 14px 28px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 250ms ease;
+  width: fit-content;
+}
+
+.primaryBtn:hover {
+  transform: scale(1.03);
+  background: #f0f0f0;
+}
+
+/* ── Animations ── */
+.animateIn .profileCard { animation: fade-up 500ms ease-out 100ms forwards; opacity: 0; }
+.animateIn .contentColumn { animation: fade-up 500ms ease-out 200ms forwards; opacity: 0; }
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}
+
+@media (max-width: 768px) {
+  .headline { font-size: 32px; }
+  .subheadline { max-width: 100%; }
+}

@@ -1,0 +1,292 @@
+.page {
+}
+
+/* ── Hero ── */
+.hero {
+  background: #f5f5f5;
+  padding: 160px 0 80px;
+  text-align: center;
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: #787878;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.headline {
+  font-size: 52px;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.1;
+  margin: 0 0 20px 0;
+  letter-spacing: -0.03em;
+}
+
+.accent {
+  background: linear-gradient(135deg, var(--accent-orange) 0%, #FFD1A3 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.subtitle {
+  font-size: 18px;
+  color: #64748b;
+  max-width: 500px;
+  line-height: 1.6;
+  margin: 0 0 48px 0;
+}
+
+/* ── Search Bar ── */
+.searchBar {
+  display: flex;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.searchInputWrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border-radius: 4px 0 0 4px;
+  padding: 0 20px;
+}
+
+.searchIcon {
+  color: #94a3b8;
+  flex-shrink: 0;
+}
+
+.searchInput {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 16px 12px;
+  font-size: 15px;
+  color: #0f172a;
+  outline: none;
+  font-family: var(--font-primary);
+}
+
+.searchInput::placeholder {
+  color: #94a3b8;
+}
+
+.searchBtn {
+  background: var(--accent-orange);
+  color: #000000;
+  border: none;
+  padding: 0 36px;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  transition: filter 250ms ease;
+  font-family: var(--font-primary);
+}
+
+.searchBtn:hover {
+  filter: brightness(1.1);
+}
+
+/* ── Or Divider ── */
+.orDivider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 28px 0;
+  width: 100%;
+  max-width: 300px;
+}
+
+.orLine {
+  flex: 1;
+  height: 1px;
+  background: #d1d5db;
+}
+
+.orText {
+  font-size: 13px;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+/* ── QR Button ── */
+.qrBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  border: 1px solid #d1d5db;
+  color: #0f172a;
+  padding: 12px 28px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 250ms ease;
+  font-family: var(--font-primary);
+}
+
+.qrBtn:hover {
+  background: #e5e7eb;
+  border-color: #94a3b8;
+}
+
+/* ── Trust Bar ── */
+.trustBar {
+  background: #0a1120;
+  padding: 20px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.trustContent {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.trustItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #64748b;
+}
+
+.trustItem svg {
+  color: var(--accent-orange);
+}
+
+/* ── Steps ── */
+.steps {
+  background: #f5f5f5;
+  padding: 96px 0;
+}
+
+.stepsContent {
+  text-align: center;
+}
+
+.stepsHeadline {
+  font-size: 32px;
+  font-weight: 600;
+  color: #0f172a;
+  margin: 0 0 48px 0;
+}
+
+.stepsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+}
+
+.stepCard {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  padding: 32px 24px;
+  text-align: left;
+  transition: transform 300ms ease, box-shadow 300ms ease;
+}
+
+.stepCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.stepNum {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--accent-orange);
+  display: block;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+
+.stepTitle {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 8px 0;
+}
+
+.stepDesc {
+  font-size: 14px;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── CTA Section ── */
+.ctaSection {
+  background: #0f172b;
+  padding: 80px 0;
+}
+
+.ctaContent {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ctaHeadline {
+  font-size: 28px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 12px 0;
+}
+
+.ctaDesc {
+  font-size: 16px;
+  color: #94a3b8;
+  margin: 0 0 32px 0;
+}
+
+.ctaBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  color: #0f172a;
+  padding: 14px 32px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+  transition: all 250ms ease;
+}
+
+.ctaBtn:hover {
+  transform: scale(1.03);
+  background: #f0f0f0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .headline { font-size: 32px; }
+  .hero { padding: 120px 0 60px; }
+  .subtitle { font-size: 16px; max-width: 100%; }
+  .searchBar { flex-direction: column; width: 100%; }
+  .searchInputWrap { border-radius: 4px; }
+  .searchBtn { border-radius: 4px; padding: 16px; width: 100%; }
+  .trustContent {
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+  }
+  .stepsGrid { grid-template-columns: 1fr; }
+}

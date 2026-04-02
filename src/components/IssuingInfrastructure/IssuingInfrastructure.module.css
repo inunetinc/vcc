@@ -1,0 +1,339 @@
+/* ── Section ── */
+.section {
+  padding: 112px 0;
+  background: #f5f5f5;
+}
+
+.container {
+  opacity: 0;
+}
+
+.animateIn {
+  animation: fade-up 500ms ease-out forwards;
+}
+
+/* ── Header ── */
+.headerBlock {
+  margin-bottom: 28px;
+}
+
+.eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: #787878;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  font-weight: 600;
+  display: block;
+}
+
+.headline {
+  font-size: 40px;
+  font-weight: 600;
+  color: #0f172a;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+/* ── Card Grid ── */
+.cardGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: stretch;
+}
+
+/* ── Featured Card (Left) ── */
+.featuredCard {
+  background: #ffffff;
+  border-radius: 4px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  transition: transform 300ms ease, box-shadow 300ms ease;
+}
+
+.featuredCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+}
+
+.featuredContent {
+  padding: 32px 32px 24px;
+}
+
+.featuredTitle {
+  font-size: 22px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 12px 0;
+  line-height: 1.3;
+}
+
+.featuredDesc {
+  font-size: 15px;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.featuredVisual {
+  flex: 1;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 220px;
+  padding: 32px;
+}
+
+.visualIcon {
+  color: rgba(255, 255, 255, 0.15);
+}
+
+.featuredFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 32px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.footerLeft {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #64748b;
+}
+
+.footerRight {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footerMeta {
+  font-size: 13px;
+  color: #94a3b8;
+}
+
+/* ── Tags ── */
+.tag {
+  display: inline-block;
+  padding: 4px 12px;
+  background: #f1f5f9;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #475569;
+}
+
+/* ── Gallery 2x2 Grid (Right) ── */
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.galleryCard {
+  background: #ffffff;
+  border-radius: 4px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e5e7eb;
+  transition: transform 300ms ease, box-shadow 300ms ease;
+}
+
+.galleryCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.galleryIconWrap {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  color: #0f172a;
+}
+
+.galleryTitle {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 8px 0;
+  line-height: 1.3;
+}
+
+.galleryDesc {
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ── Subheadline & Lines ── */
+.subheadline {
+  font-size: 17px;
+  color: #64748b;
+  max-width: 70%;
+  line-height: 1.6;
+  margin: 16px 0 16px;
+}
+
+.differentiatorLine {
+  font-size: 13px;
+  color: #94a3b8;
+  margin: 0 0 8px;
+  line-height: 1.6;
+}
+
+.audienceLine {
+  font-size: 13px;
+  color: #94a3b8;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.moatRow {
+  display: flex;
+  align-items: flex-end;
+  gap: 24px;
+  margin-top: 32px;
+}
+
+/* ── Moat Card ── */
+.moatCard {
+  flex: 1;
+  background: #ffffff;
+  border-radius: 4px;
+  border-left: 3px solid var(--accent-orange);
+  padding: 24px 28px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  transition: transform 300ms ease;
+}
+
+.moatCard:hover {
+  transform: translateY(-2px);
+}
+
+.moatIcon {
+  color: var(--accent-orange);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.moatContent {
+  flex: 1;
+}
+
+.moatTitle {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 6px 0;
+}
+
+.moatDesc {
+  font-size: 14px;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── Trust Strip ── */
+.trustStrip {
+  text-align: center;
+  color: #94a3b8;
+  font-size: 14px;
+  margin-top: 24px;
+  font-weight: 500;
+}
+
+/* ── CTA ── */
+.primaryBtn {
+  flex-shrink: 0;
+  background: #0f172a;
+  color: #ffffff;
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 250ms ease;
+}
+
+.primaryBtn:hover {
+  transform: scale(1.03);
+  background: #1e293b;
+}
+
+.secondaryLink {
+  color: #475569;
+  font-size: 14px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  transition: color 250ms ease;
+}
+
+.secondaryLink:hover {
+  color: #0f172a;
+}
+
+/* ── Animations ── */
+.animateIn .featuredCard { animation: fade-up 500ms ease-out 100ms forwards; opacity: 0; }
+.animateIn .galleryCard:nth-child(1) { animation: fade-up 500ms ease-out 200ms forwards; opacity: 0; }
+.animateIn .galleryCard:nth-child(2) { animation: fade-up 500ms ease-out 300ms forwards; opacity: 0; }
+.animateIn .galleryCard:nth-child(3) { animation: fade-up 500ms ease-out 400ms forwards; opacity: 0; }
+.animateIn .galleryCard:nth-child(4) { animation: fade-up 500ms ease-out 500ms forwards; opacity: 0; }
+.animateIn .moatCard { animation: fade-up 500ms ease-out 550ms forwards; opacity: 0; }
+.animateIn .ctaGroup { animation: fade-up 500ms ease-out 600ms forwards; opacity: 0; }
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .cardGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .headline {
+    font-size: 28px;
+    white-space: normal;
+  }
+  .subheadline { max-width: 100%; }
+  .section { padding: 80px 0; }
+  .moatRow { flex-direction: column; gap: 16px; }
+  .moatCard { flex-direction: column; }
+  .gallery { grid-template-columns: 1fr; }
+  .ctaGroup {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+}

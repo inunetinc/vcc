@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Master Theme Colors */
+  --bg-base: #010101;
+  --bg-surface: #0B1A2B;
+  
+  --text-primary: #FFFFFF;
+  --text-secondary: #C6C6C6;
+  --text-muted: #A0A9B8;
+
+  --accent-cyan: #00D4FF;
+  --accent-orange: #FE9A00;
+
+  /* Typography */
+  --font-primary: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Layout */
+  --max-width: 1440px;
+  --container-padding: 24px;
+  --section-spacing: 96px;
+
+  /* Border Radius */
+  --radius-card: 20px;
+  --radius-button: 12px;
+
+  /* Transitions */
+  --transition-default: 250ms ease;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --container-padding: 40px;
+    --section-spacing: 128px;
+    --radius-card: 20px;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-primary);
+  font-weight: 400;
+  overflow-x: hidden;
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-primary);
+  font-weight: 600;
+  margin: 0;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+p {
+  color: var(--text-secondary);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color var(--transition-default);
+}
+
+button {
+  cursor: pointer;
+  font-family: var(--font-primary);
+  border: none;
+  outline: none;
+  transition: all var(--transition-default);
+}
+
+button:focus-visible, a:focus-visible, input:focus-visible {
+  outline: 2px solid var(--accent-cyan);
+  outline-offset: 2px;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+/* Base Utility Classes based on guide */
+.btn-primary {
+  background-color: var(--accent-cyan);
+  color: #000000;
+  padding: 16px 32px;
+  border-radius: var(--radius-button);
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--transition-default), filter var(--transition-default);
+}
+
+.btn-primary:hover {
+  transform: scale(1.03);
+  filter: brightness(1.05);
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--text-primary);
+  border: 1px solid #4B5563; /* generic gray border requested */
+  padding: 16px 32px;
+  border-radius: var(--radius-button);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-default);
+}
+
+.btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  transform: scale(1.03);
+}
+
+.btn-secondary:active {
+  transform: scale(0.98);
+}
+
+/* Global Animations */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Reduced Motion Override */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Print Styles */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  
+  .hero, .trust-layer, .footer, header {
+    background: white !important;
+  }
+  
+  .credential-card {
+    box-shadow: none !important;
+    border: 1px solid #ccc !important;
+    break-inside: avoid;
+    color: black !important;
+  }
+  
+  .cta-button, .btn-primary, .btn-secondary, button, .motion-element {
+    display: none !important;
+  }
+  
+  a {
+    text-decoration: underline;
+    color: black !important;
+  }
+}

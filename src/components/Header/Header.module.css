@@ -1,0 +1,258 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: transparent;
+  margin-bottom: -100px;
+  transition: background 400ms ease, border-radius 400ms ease, box-shadow 400ms ease;
+}
+
+.headerScrolled {
+  background: #c6c6c6;
+}
+
+.headerScrolled .navContainer {
+  padding-top: 0;
+}
+
+.headerScrolled .mainNavPill,
+.headerScrolled .actionPill {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.headerScrolled .navLink {
+  color: #1a1a1a;
+}
+
+.headerScrolled .navLink:hover {
+  color: #000000;
+}
+
+.headerScrolled .verifyAction {
+  color: #1a1a1a;
+}
+
+.headerScrolled .primaryAction {
+  background: rgba(11, 26, 43, 0.95);
+  color: #ffffff;
+  border-radius: 0;
+}
+
+/* ── Top Bar ── */
+.topBar {
+  background: #000000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  width: 100%;
+  font-size: 13px;
+  color: #ffffff;
+  padding: 0;
+}
+
+.topBarContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 10px calc(var(--container-padding) + 30px);
+}
+
+.topBarRight {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.topBarItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.langDropdown {
+  position: relative;
+}
+
+.langMenu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 8px;
+  background: #1a1a1a;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  padding: 6px 0;
+  min-width: 140px;
+  z-index: 9999;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.langOption {
+  padding: 8px 16px;
+  font-size: 13px;
+  color: #d1d5db;
+  cursor: pointer;
+  transition: background 200ms ease;
+}
+
+.langOption:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+}
+
+.langActive {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.topBarItem:hover {
+  color: #fff;
+}
+
+/* ── Nav Container ── */
+.navContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding-top: 24px;
+  transition: padding 400ms ease;
+}
+
+/* ── Left Nav Pill ── */
+.mainNavPill {
+  display: flex;
+  align-items: center;
+  background: rgba(11, 26, 43, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-radius: 100px;
+  padding: 20px 32px 20px 24px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  gap: 56px;
+  transition: all 400ms ease;
+}
+
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.logoText {
+  height: 24px;
+  width: auto;
+  display: block;
+  margin-left: -8px;
+}
+
+.logoIcon {
+  height: 38px;
+  width: auto;
+  display: block;
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 44px;
+}
+
+.navLink {
+  color: #E2E8F0;
+  font-weight: 500;
+  font-size: 16px;
+  transition: color 0.2s ease;
+  text-decoration: none;
+}
+
+.navLink:hover {
+  color: #FFFFFF;
+}
+
+/* ── Right Action Pill ── */
+.actionPill {
+  display: flex;
+  align-items: stretch;
+  background: rgba(11, 26, 43, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-radius: 100px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden; /* Keys to making the white segment curve */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: all 400ms ease;
+}
+
+.verifyAction {
+  padding: 26px 32px;
+  color: #FFFFFF;
+  font-weight: 500;
+  font-size: 16px;
+  text-decoration: none;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  transition: background 0.2s ease;
+}
+
+.verifyAction:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.primaryAction {
+  padding: 26px 36px;
+  background: #FFFFFF;
+  color: #000000;
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.primaryAction:hover {
+  opacity: 0.9;
+}
+
+/* Mobile Breakpoints */
+@media (max-width: 1080px) {
+  .navLinks {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .topBar {
+    display: none;
+  }
+  .header {
+    margin-bottom: -70px;
+  }
+  .navContainer {
+    padding-top: 16px;
+  }
+  .mainNavPill {
+    padding: 12px 20px;
+    gap: 16px;
+    width: 100%;
+    justify-content: center;
+  }
+  .actionPill {
+    display: none;
+  }
+  .logoIcon { height: 28px; }
+  .logoText { height: 18px; }
+  .headerScrolled .navContainer { padding-top: 8px; }
+  .headerScrolled .mainNavPill { padding: 10px 16px; }
+}

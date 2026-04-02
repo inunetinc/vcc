@@ -1,0 +1,8 @@
+.section { background: #0f172b; padding: 80px 0; }
+.content { text-align: center; display: flex; flex-direction: column; align-items: center; }
+.headline { font-size: 32px; font-weight: 700; color: #ffffff; margin: 0 0 12px 0; }
+.sub { font-size: 16px; color: #94a3b8; margin: 0 0 32px 0; max-width: 520px; }
+.btnRow { display: flex; gap: 16px; }
+.primaryBtn { background: var(--accent-orange); color: #000; padding: 14px 32px; border-radius: 4px; font-weight: 700; font-size: 15px; border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: all 250ms ease; }
+.primaryBtn:hover { filter: brightness(1.1); transform: scale(1.03); }
+@media (max-width: 768px) { .headline { font-size: 24px; } }
