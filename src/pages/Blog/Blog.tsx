@@ -59,7 +59,6 @@ export default function Blog() {
 
   const filtered = activeTag === 'All' ? posts : posts.filter(p => p.tag === activeTag);
   const featured = posts[0];
-  const rest = filtered.filter(p => !p.featured || activeTag !== 'All');
 
   return (
     <div className={styles.page}>

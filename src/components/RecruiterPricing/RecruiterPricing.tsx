@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { Check, ArrowRight } from 'lucide-react';
+import { Check } from 'lucide-react';
 import { useTranslation } from '../../i18n';
 import styles from './RecruiterPricing.module.css';
 

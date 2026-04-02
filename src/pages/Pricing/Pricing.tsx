@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Check, ChevronDown, ArrowRight } from 'lucide-react';
+import { Check, ChevronDown } from 'lucide-react';
 import { useTranslation } from '../../i18n';
 import styles from './Pricing.module.css';
 

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Check, QrCode, ShieldCheck, ArrowRight, ScanLine, Fingerprint, BadgeCheck, Globe, Database, UserCheck, Lock, ExternalLink } from 'lucide-react';
+import { Check, QrCode, ShieldCheck, ScanLine, Fingerprint, BadgeCheck, Globe, Database, Lock, ExternalLink } from 'lucide-react';
 import styles from './Hero.module.css';
 import { useTranslation } from '../../i18n';
 

@@ -5,7 +5,6 @@ import CredentialTypes from '../../components/CredentialTypes/CredentialTypes';
 import InstitutionIntegration from '../../components/InstitutionIntegration/InstitutionIntegration';
 import InstitutionPricing from '../../components/InstitutionPricing/InstitutionPricing';
 import BlockchainTrust from '../../components/BlockchainTrust/BlockchainTrust';
-import InstitutionTestimonials from '../../components/InstitutionTestimonials/InstitutionTestimonials';
 import InstitutionCTA from '../../components/InstitutionCTA/InstitutionCTA';
 
 export default function Institution() {
