@@ -225,10 +225,31 @@
   opacity: 0.9;
 }
 
+/* ── Hamburger ── */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 9999;
+}
+
+/* ── Mobile Menu ── */
+.mobileMenu {
+  display: none;
+}
+
 /* Mobile Breakpoints */
 @media (max-width: 1080px) {
   .navLinks {
     display: none;
+  }
+  .hamburger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
@@ -241,12 +262,12 @@
   }
   .navContainer {
     padding-top: 16px;
+    position: relative;
   }
   .mainNavPill {
     padding: 12px 20px;
     gap: 16px;
-    width: 100%;
-    justify-content: center;
+    flex: 1;
   }
   .actionPill {
     display: none;
@@ -255,4 +276,98 @@
   .logoText { height: 18px; }
   .headerScrolled .navContainer { padding-top: 8px; }
   .headerScrolled .mainNavPill { padding: 10px 16px; }
+
+  .mobileMenu {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #0f172b;
+    z-index: 9998;
+    padding: 100px 32px 40px;
+    animation: slideDown 300ms ease-out;
+  }
+
+  .mobileNav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+  }
+
+  .mobileLink {
+    color: #e2e8f0;
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    transition: color 200ms ease;
+  }
+
+  .mobileLink:hover {
+    color: var(--accent-orange);
+  }
+
+  .mobileCta {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-top: 24px;
+  }
+
+  .mobileCtaBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 4px;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 200ms ease;
+  }
+
+  .mobileCtaBtn:hover {
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .mobileCtaPrimary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px;
+    background: #ffffff;
+    border-radius: 4px;
+    color: #000000;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 200ms ease;
+  }
+
+  .mobileCtaPrimary:hover {
+    background: #f0f0f0;
+  }
+
+  .hamburger {
+    position: absolute;
+    right: var(--container-padding);
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .headerScrolled .hamburger {
+    color: #0f172a;
+  }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
 }

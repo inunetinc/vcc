@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Phone, Search, Globe, ChevronDown } from 'lucide-react';
+import { Phone, Search, Globe, ChevronDown, Menu, X } from 'lucide-react';
 import { useTranslation } from '../../i18n';
 import type { Language } from '../../i18n';
 import styles from './Header.module.css';
@@ -16,6 +16,7 @@ export default function Header() {
   const { t, language, setLanguage } = useTranslation();
   const [scrolled, setScrolled] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const currentLangLabel = langMap.find(l => l.code === language)?.label ?? 'English';
 
   useEffect(() => {
@@ -98,8 +99,32 @@ export default function Header() {
             <Link to="/pricing" className={styles.primaryAction}>{t('header.getStarted')}</Link>
           </div>
 
+          {/* Hamburger */}
+          <button className={styles.hamburger} onClick={() => setMobileOpen(!mobileOpen)} aria-label="Menu">
+            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+
         </div>
       </header>
+
+      {/* Mobile Menu */}
+      {mobileOpen && (
+        <div className={styles.mobileMenu}>
+          <nav className={styles.mobileNav}>
+            <Link to="/" className={styles.mobileLink} onClick={() => setMobileOpen(false)}>{t('header.home')}</Link>
+            <Link to="/verify" className={styles.mobileLink} onClick={() => setMobileOpen(false)}>{t('header.verify')}</Link>
+            <Link to="/institution" className={styles.mobileLink} onClick={() => setMobileOpen(false)}>{t('header.institution')}</Link>
+            <Link to="/recruiter" className={styles.mobileLink} onClick={() => setMobileOpen(false)}>{t('header.recruiter')}</Link>
+            <Link to="/asil" className={styles.mobileLink} onClick={() => setMobileOpen(false)}>{t('header.asil')}</Link>
+            <Link to="/pricing" className={styles.mobileLink} onClick={() => setMobileOpen(false)}>{t('header.pricing')}</Link>
+            <Link to="/blog" className={styles.mobileLink} onClick={() => setMobileOpen(false)}>{t('header.blog')}</Link>
+          </nav>
+          <div className={styles.mobileCta}>
+            <Link to="/verify" className={styles.mobileCtaBtn} onClick={() => setMobileOpen(false)}>{t('header.verifyCredential')}</Link>
+            <Link to="/pricing" className={styles.mobileCtaPrimary} onClick={() => setMobileOpen(false)}>{t('header.getStarted')}</Link>
+          </div>
+        </div>
+      )}
     </>
   );
 }
