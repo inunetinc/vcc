@@ -1,17 +1,19 @@
 import { useState, useEffect } from 'react';
 import { ArrowRight, ShieldCheck, Clock, Search, Users, Zap } from 'lucide-react';
+import { useTranslation } from '../../i18n';
 import styles from './RecruiterHero.module.css';
 
-const stats = [
-  { icon: Search, value: '<3 sec', label: 'Verification Time' },
-  { icon: ShieldCheck, value: '99.9%', label: 'Accuracy Rate' },
-  { icon: Users, value: '23', label: 'Countries Covered' },
-  { icon: Zap, value: '0', label: 'Phone Calls Needed' },
-];
-
 export default function RecruiterHero() {
+  const { t } = useTranslation();
   const [active, setActive] = useState(false);
   useEffect(() => { setTimeout(() => setActive(true), 100); }, []);
+
+  const stats = [
+    { icon: Search, value: t('recHero.stat1.value'), label: t('recHero.stat1.label') },
+    { icon: ShieldCheck, value: t('recHero.stat2.value'), label: t('recHero.stat2.label') },
+    { icon: Users, value: t('recHero.stat3.value'), label: t('recHero.stat3.label') },
+    { icon: Zap, value: t('recHero.stat4.value'), label: t('recHero.stat4.label') },
+  ];
 
   return (
     <section className={styles.section}>
@@ -19,20 +21,20 @@ export default function RecruiterHero() {
         <div className={styles.grid}>
 
           <div className={styles.textCol}>
-            <span className={styles.eyebrow}>FOR RECRUITERS</span>
+            <span className={styles.eyebrow}>{t('recHero.eyebrow')}</span>
             <h1 className={styles.headline}>
-              Find talent with<br />credentials you can<br />actually <span className={styles.accent}>trust.</span>
+              Find talent with<br />credentials you can<br />actually <span className={styles.accent}>{t('recHero.accent')}</span>
             </h1>
             <p className={styles.subtitle}>
-              Verify candidates' academic and professional credentials instantly — no phone calls, no delays, no fraud risk. Built for recruiters who need certainty.
+              {t('recHero.subtitle')}
             </p>
             <div className={styles.btnRow}>
-              <button className={styles.primaryBtn}>Start Verifying Free <ArrowRight size={16} /></button>
-              <button className={styles.secondaryBtn}>See How It Works</button>
+              <button className={styles.primaryBtn}>{t('recHero.cta1')} <ArrowRight size={16} /></button>
+              <button className={styles.secondaryBtn}>{t('recHero.cta2')}</button>
             </div>
             <div className={styles.trustRow}>
-              <span className={styles.trustItem}><ShieldCheck size={14} /> Free tier available</span>
-              <span className={styles.trustItem}><Clock size={14} /> No credit card required</span>
+              <span className={styles.trustItem}><ShieldCheck size={14} /> {t('recHero.trust1')}</span>
+              <span className={styles.trustItem}><Clock size={14} /> {t('recHero.trust2')}</span>
             </div>
           </div>
 

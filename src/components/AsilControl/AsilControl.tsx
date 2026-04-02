@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Eye, RotateCcw, ShieldCheck, Server, Download } from 'lucide-react';
+import { useTranslation } from '../../i18n';
 import styles from './AsilControl.module.css';
 
 const points = [
@@ -11,6 +12,7 @@ const points = [
 ];
 
 export default function AsilControl() {
+  const { t } = useTranslation();
   const [visible, setVisible] = useState(false);
   const ref = useRef<HTMLElement>(null);
   useEffect(() => {
@@ -24,9 +26,9 @@ export default function AsilControl() {
       <div className={`container ${styles.container} ${visible ? styles.animateIn : ''}`}>
         <div className={styles.grid}>
           <div className={styles.header}>
-            <span className={styles.eyebrow}>DATA OWNERSHIP</span>
-            <h2 className={styles.headline}>Control Your Data</h2>
-            <p className={styles.sub}>Your credentials belong to you. Not your institution. Not us. You.</p>
+            <span className={styles.eyebrow}>{t('asilCtrl.eyebrow')}</span>
+            <h2 className={styles.headline}>{t('asilCtrl.headline')}</h2>
+            <p className={styles.sub}>{t('asilCtrl.sub')}</p>
           </div>
           <div className={styles.list}>
             {points.map((p, i) => {

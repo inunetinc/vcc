@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { ChevronDown } from 'lucide-react';
+import { useTranslation } from '../../i18n';
 import styles from './AsilFAQ.module.css';
 
 const faqs = [
@@ -11,6 +12,7 @@ const faqs = [
 ];
 
 export default function AsilFAQ() {
+  const { t } = useTranslation();
   const [visible, setVisible] = useState(false);
   const [openIdx, setOpenIdx] = useState<number | null>(null);
   const ref = useRef<HTMLElement>(null);
@@ -25,9 +27,9 @@ export default function AsilFAQ() {
       <div className={`container ${styles.container} ${visible ? styles.animateIn : ''}`}>
         <div className={styles.layout}>
           <div className={styles.header}>
-            <span className={styles.eyebrow}>FAQ</span>
-            <h2 className={styles.headline}>Frequently Asked Questions</h2>
-            <p className={styles.sub}>Everything you need to know about Asil.</p>
+            <span className={styles.eyebrow}>{t('asilFaq.eyebrow')}</span>
+            <h2 className={styles.headline}>{t('asilFaq.headline')}</h2>
+            <p className={styles.sub}>{t('asilFaq.sub')}</p>
           </div>
           <div className={styles.faqList}>
             {faqs.map((f, i) => (

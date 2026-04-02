@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { KeyRound, Globe, ShieldCheck, Wallet } from 'lucide-react';
+import { useTranslation } from '../../i18n';
 import styles from './AsilWhyNeed.module.css';
 
 const reasons = [
@@ -10,6 +11,7 @@ const reasons = [
 ];
 
 export default function AsilWhyNeed() {
+  const { t } = useTranslation();
   const [visible, setVisible] = useState(false);
   const ref = useRef<HTMLElement>(null);
   useEffect(() => {
@@ -22,8 +24,8 @@ export default function AsilWhyNeed() {
     <section className={styles.section} ref={ref}>
       <div className={`container ${styles.container} ${visible ? styles.animateIn : ''}`}>
         <div className={styles.header}>
-          <span className={styles.eyebrow}>THE PROBLEM</span>
-          <h2 className={styles.headline}>Why you need a credential wallet</h2>
+          <span className={styles.eyebrow}>{t('asilWhy.eyebrow')}</span>
+          <h2 className={styles.headline}>{t('asilWhy.headline')}</h2>
         </div>
         <div className={styles.grid}>
           {reasons.map((r, i) => {

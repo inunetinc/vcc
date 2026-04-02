@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Check, ChevronDown, ArrowRight } from 'lucide-react';
+import { useTranslation } from '../../i18n';
 import styles from './Pricing.module.css';
 
 type Tab = 'institutions' | 'claimers' | 'recruiters';
@@ -38,6 +39,7 @@ const faqs = [
 ];
 
 export default function Pricing() {
+  const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState<Tab>('institutions');
   const [isAnnual, setIsAnnual] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -49,26 +51,30 @@ export default function Pricing() {
       {/* Hero */}
       <section className={styles.hero}>
         <div className={`container ${styles.heroContent}`}>
-          <h1 className={styles.headline}>Simple, Transparent Pricing</h1>
-          <p className={styles.subtitle}>Choose the plan that fits your needs. No hidden fees.</p>
+          <h1 className={styles.headline}>{t('pricingPage.headline')}</h1>
+          <p className={styles.subtitle}>{t('pricingPage.subtitle')}</p>
 
           <div className={styles.toggleRow}>
-            <span className={`${styles.toggleLabel} ${!isAnnual ? styles.toggleActive : ''}`}>Monthly</span>
+            <span className={`${styles.toggleLabel} ${!isAnnual ? styles.toggleActive : ''}`}>{t('pricingPage.monthly')}</span>
             <button className={styles.toggle} onClick={() => setIsAnnual(!isAnnual)}>
               <span className={`${styles.toggleKnob} ${isAnnual ? styles.toggleKnobRight : ''}`}></span>
             </button>
-            <span className={`${styles.toggleLabel} ${isAnnual ? styles.toggleActive : ''}`}>Annual</span>
-            <span className={styles.saveBadge}>Save 17%</span>
+            <span className={`${styles.toggleLabel} ${isAnnual ? styles.toggleActive : ''}`}>{t('pricingPage.annual')}</span>
+            <span className={styles.saveBadge}>{t('pricingPage.save')}</span>
           </div>
 
           <div className={styles.tabs}>
-            {(['institutions', 'claimers', 'recruiters'] as Tab[]).map(tab => (
+            {([
+              { key: 'institutions' as Tab, label: t('pricingPage.institutions') },
+              { key: 'claimers' as Tab, label: t('pricingPage.claimers') },
+              { key: 'recruiters' as Tab, label: t('pricingPage.recruiters') },
+            ]).map(tab => (
               <button
-                key={tab}
-                className={`${styles.tab} ${activeTab === tab ? styles.tabActive : ''}`}
-                onClick={() => setActiveTab(tab)}
+                key={tab.key}
+                className={`${styles.tab} ${activeTab === tab.key ? styles.tabActive : ''}`}
+                onClick={() => setActiveTab(tab.key)}
               >
-                {tab.charAt(0).toUpperCase() + tab.slice(1)}
+                {tab.label}
               </button>
             ))}
           </div>
@@ -81,7 +87,7 @@ export default function Pricing() {
           <div className={styles.cardsGrid} style={{ gridTemplateColumns: `repeat(${currentPlans.length}, 1fr)` }}>
             {currentPlans.map((p, i) => (
               <div key={i} className={`${styles.card} ${p.highlighted ? styles.cardHighlighted : ''}`}>
-                {p.highlighted && <span className={styles.badge}>Most Popular</span>}
+                {p.highlighted && <span className={styles.badge}>{t('pricingPage.mostPopular')}</span>}
                 <h3 className={styles.planName}>{p.name}</h3>
                 <p className={styles.planDesc}>{p.desc}</p>
                 <div className={styles.priceRow}>
@@ -105,7 +111,7 @@ export default function Pricing() {
       {/* FAQ */}
       <section className={styles.faqSection}>
         <div className={`container ${styles.faqContainer}`}>
-          <h2 className={styles.faqHeadline}>Frequently Asked Questions</h2>
+          <h2 className={styles.faqHeadline}>{t('pricingPage.faqHeadline')}</h2>
           <div className={styles.faqList}>
             {faqs.map((f, i) => (
               <div key={i} className={`${styles.faqItem} ${openFaq === i ? styles.faqOpen : ''}`} onClick={() => setOpenFaq(openFaq === i ? null : i)}>

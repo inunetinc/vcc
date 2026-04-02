@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Wallet, Share2, Lock, QrCode, Bell, Globe } from 'lucide-react';
+import { useTranslation } from '../../i18n';
 import styles from './AsilFeatures.module.css';
 
 const features = [
@@ -12,6 +13,7 @@ const features = [
 ];
 
 export default function AsilFeatures() {
+  const { t } = useTranslation();
   const [visible, setVisible] = useState(false);
   const ref = useRef<HTMLElement>(null);
   useEffect(() => {
@@ -24,9 +26,9 @@ export default function AsilFeatures() {
     <section className={styles.section} ref={ref}>
       <div className={`container ${styles.container} ${visible ? styles.animateIn : ''}`}>
         <div className={styles.header}>
-          <span className={styles.eyebrow}>FEATURES</span>
-          <h2 className={styles.headline}>Everything You Gain — Free</h2>
-          <p className={styles.sub}>Asil is free for individuals. Your credentials, your control.</p>
+          <span className={styles.eyebrow}>{t('asilFeat.eyebrow')}</span>
+          <h2 className={styles.headline}>{t('asilFeat.headline')}</h2>
+          <p className={styles.sub}>{t('asilFeat.sub')}</p>
         </div>
         <div className={styles.grid}>
           {features.map((f, i) => {

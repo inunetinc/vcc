@@ -1,15 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
 import { UserPlus, ShieldCheck, FileCheck, Zap } from 'lucide-react';
+import { useTranslation } from '../../i18n';
 import styles from './InstitutionHowItWorks.module.css';
 
-const steps = [
-  { num: '01', icon: UserPlus, title: 'Register', desc: 'Create your institution account with your credentials details and documents.' },
-  { num: '02', icon: ShieldCheck, title: 'Get Verified', desc: 'We validate your institution against regulatory databases.' },
-  { num: '03', icon: FileCheck, title: 'Issue Credentials', desc: 'Start issuing blockchain-verified credentials to students.' },
-  { num: '04', icon: Zap, title: 'Verify Instantly', desc: 'Employers verify credentials via the public verification portal.' },
-];
-
 export default function InstitutionHowItWorks() {
+  const { t } = useTranslation();
   const [visible, setVisible] = useState(false);
   const ref = useRef<HTMLElement>(null);
   useEffect(() => {
@@ -18,13 +13,20 @@ export default function InstitutionHowItWorks() {
     return () => obs.disconnect();
   }, []);
 
+  const steps = [
+    { num: '01', icon: UserPlus, title: t('instHow.step1'), desc: t('instHow.step1.desc') },
+    { num: '02', icon: ShieldCheck, title: t('instHow.step2'), desc: t('instHow.step2.desc') },
+    { num: '03', icon: FileCheck, title: t('instHow.step3'), desc: t('instHow.step3.desc') },
+    { num: '04', icon: Zap, title: t('instHow.step4'), desc: t('instHow.step4.desc') },
+  ];
+
   return (
     <section className={styles.section} ref={ref}>
       <div className={`container ${styles.container} ${visible ? styles.animateIn : ''}`}>
         <div className={styles.header}>
-          <span className={styles.eyebrow}>HOW IT WORKS</span>
-          <h2 className={styles.headline}>How It Works</h2>
-          <p className={styles.sub}>From registration to your first issued credential in under 30 minutes.</p>
+          <span className={styles.eyebrow}>{t('instHow.eyebrow')}</span>
+          <h2 className={styles.headline}>{t('instHow.headline')}</h2>
+          <p className={styles.sub}>{t('instHow.sub')}</p>
         </div>
         <div className={styles.stepsGrid}>
           {steps.map((s, i) => {

@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Search, Users, BarChart3, Plug, FileSpreadsheet, ShieldCheck } from 'lucide-react';
+import { useTranslation } from '../../i18n';
 import styles from './RecruiterFeatures.module.css';
 
 const features = [
@@ -12,6 +13,7 @@ const features = [
 ];
 
 export default function RecruiterFeatures() {
+  const { t } = useTranslation();
   const [visible, setVisible] = useState(false);
   const ref = useRef<HTMLElement>(null);
   useEffect(() => {
@@ -24,9 +26,9 @@ export default function RecruiterFeatures() {
     <section className={styles.section} ref={ref}>
       <div className={`container ${styles.container} ${visible ? styles.animateIn : ''}`}>
         <div className={styles.header}>
-          <span className={styles.eyebrow}>FEATURES</span>
-          <h2 className={styles.headline}>Built for Professional Recruiters</h2>
-          <p className={styles.sub}>Everything you need to verify candidates at scale.</p>
+          <span className={styles.eyebrow}>{t('recFeat.eyebrow')}</span>
+          <h2 className={styles.headline}>{t('recFeat.headline')}</h2>
+          <p className={styles.sub}>{t('recFeat.sub')}</p>
         </div>
         <div className={styles.grid}>
           {features.map((f, i) => {

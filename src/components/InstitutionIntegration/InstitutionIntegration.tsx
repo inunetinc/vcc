@@ -1,17 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
+import { useTranslation } from '../../i18n';
 import styles from './InstitutionIntegration.module.css';
 
-const features = [
-  'REST API for credential issuance, verification, management, and analytics',
-  'Webhooks for real-time event notifications on issuance and verification',
-  'Type-safe Node.js and TypeScript SDKs with comprehensive error handling',
-  'OAuth 2.0 authentication with role-based access control',
-  'Sandbox environment for testing before going live',
-  'API rate limits designed for bulk issuance at scale',
-];
-
 export default function InstitutionIntegration() {
+  const { t } = useTranslation();
   const [visible, setVisible] = useState(false);
   const ref = useRef<HTMLElement>(null);
   useEffect(() => {
@@ -20,13 +13,22 @@ export default function InstitutionIntegration() {
     return () => obs.disconnect();
   }, []);
 
+  const features = [
+    t('instInteg.f1'),
+    t('instInteg.f2'),
+    t('instInteg.f3'),
+    t('instInteg.f4'),
+    t('instInteg.f5'),
+    t('instInteg.f6'),
+  ];
+
   return (
     <section className={styles.section} ref={ref}>
       <div className={`container ${styles.container} ${visible ? styles.animateIn : ''}`}>
         <div className={styles.header}>
-          <span className={styles.eyebrow}>DEVELOPER FRIENDLY</span>
-          <h2 className={styles.headline}>Integrate with Your Existing Systems</h2>
-          <p className={styles.sub}>VChainCred provides a comprehensive REST API and webhook system so you can integrate credential issuance directly into your student information system, LMS, HR platform, or any custom application.</p>
+          <span className={styles.eyebrow}>{t('instInteg.eyebrow')}</span>
+          <h2 className={styles.headline}>{t('instInteg.headline')}</h2>
+          <p className={styles.sub}>{t('instInteg.sub')}</p>
         </div>
 
         <div className={styles.grid}>
@@ -38,8 +40,8 @@ export default function InstitutionIntegration() {
               </div>
             ))}
             <div className={styles.btnRow}>
-              <button className={styles.primaryBtn}>View API Documentation <ArrowRight size={16} /></button>
-              <button className={styles.outlineBtn}>Explore SDKs</button>
+              <button className={styles.primaryBtn}>{t('instInteg.cta1')} <ArrowRight size={16} /></button>
+              <button className={styles.outlineBtn}>{t('instInteg.cta2')}</button>
             </div>
           </div>
 
@@ -64,7 +66,7 @@ export default function InstitutionIntegration() {
             </div>
             <div className={styles.codeFooter}>
               <span className={styles.statusDot}></span>
-              <span>99.99% uptime — 2,847 requests today</span>
+              <span>{t('instInteg.uptime')}</span>
             </div>
           </div>
         </div>

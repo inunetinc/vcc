@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Clock, ArrowRight } from 'lucide-react';
+import { useTranslation } from '../../i18n';
 import styles from './Blog.module.css';
 
 const posts = [
@@ -53,6 +54,7 @@ const posts = [
 const tags = ['All', 'Credentials', 'Identity', 'Infrastructure', 'Regulation', 'Product'];
 
 export default function Blog() {
+  const { t } = useTranslation();
   const [activeTag, setActiveTag] = useState('All');
 
   const filtered = activeTag === 'All' ? posts : posts.filter(p => p.tag === activeTag);
@@ -63,9 +65,9 @@ export default function Blog() {
     <div className={styles.page}>
       <section className={styles.hero}>
         <div className={`container ${styles.heroContent}`}>
-          <span className={styles.eyebrow}>BLOG</span>
-          <h1 className={styles.headline}>Learn</h1>
-          <p className={styles.subtitle}>Insights on verifiable credentials, identity, blockchain infrastructure, and the future of trust.</p>
+          <span className={styles.eyebrow}>{t('blogPage.eyebrow')}</span>
+          <h1 className={styles.headline}>{t('blogPage.headline')}</h1>
+          <p className={styles.subtitle}>{t('blogPage.subtitle')}</p>
         </div>
       </section>
 
@@ -98,7 +100,7 @@ export default function Blog() {
                 </div>
                 <h2 className={styles.featuredTitle}>{featured.title}</h2>
                 <p className={styles.featuredDesc}>{featured.desc}</p>
-                <a href={`/blog/${featured.id}`} className={styles.readLink}>Read article <ArrowRight size={14} /></a>
+                <a href={`/blog/${featured.id}`} className={styles.readLink}>{t('blogPage.readArticle')} <ArrowRight size={14} /></a>
               </div>
             </div>
           )}

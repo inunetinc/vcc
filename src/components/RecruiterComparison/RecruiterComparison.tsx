@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Check, X } from 'lucide-react';
+import { useTranslation } from '../../i18n';
 import styles from './RecruiterComparison.module.css';
 
 const rows = [
@@ -13,6 +14,7 @@ const rows = [
 ];
 
 export default function RecruiterComparison() {
+  const { t } = useTranslation();
   const [visible, setVisible] = useState(false);
   const ref = useRef<HTMLElement>(null);
   useEffect(() => {
@@ -25,14 +27,14 @@ export default function RecruiterComparison() {
     <section className={styles.section} ref={ref}>
       <div className={`container ${styles.container} ${visible ? styles.animateIn : ''}`}>
         <div className={styles.header}>
-          <span className={styles.eyebrow}>COMPARISON</span>
-          <h2 className={styles.headline}>Zero phone calls for verifiable status</h2>
+          <span className={styles.eyebrow}>{t('recComp.eyebrow')}</span>
+          <h2 className={styles.headline}>{t('recComp.headline')}</h2>
         </div>
         <div className={styles.table}>
           <div className={styles.tableHeader}>
-            <div className={styles.featureCol}>Feature</div>
-            <div className={styles.oldCol}>Traditional</div>
-            <div className={styles.newCol}>VChainCred</div>
+            <div className={styles.featureCol}>{t('recComp.feature')}</div>
+            <div className={styles.oldCol}>{t('recComp.traditional')}</div>
+            <div className={styles.newCol}>{t('recComp.vchaincred')}</div>
           </div>
           {rows.map((r, i) => (
             <div key={i} className={styles.tableRow}>

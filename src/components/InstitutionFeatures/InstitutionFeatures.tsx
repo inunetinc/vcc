@@ -1,20 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
 import { ShieldCheck, Zap, Settings, Code, Layers, Sparkles, Users, BarChart3, Scale } from 'lucide-react';
+import { useTranslation } from '../../i18n';
 import styles from './InstitutionFeatures.module.css';
 
-const features = [
-  { icon: ShieldCheck, title: 'Tamper-Proof Credentials', desc: 'Every credential is cryptographically sealed on the blockchain — impossible to forge, alter, or duplicate.' },
-  { icon: Zap, title: 'Instant Verification', desc: 'Anyone can verify a credential in under 3 seconds. No account, no phone calls, no delays.' },
-  { icon: Settings, title: 'Configurable Workflows', desc: 'Set up multi-stage approval and verification workflows that match your institution\'s governance rules.' },
-  { icon: Code, title: 'REST API & Webhooks', desc: 'Integrate VChainCred directly into your student information system, LMS, or HR platform.' },
-  { icon: Layers, title: 'Bulk Issuance', desc: 'Issue thousands of credentials at once via CSV upload — perfect for graduation seasons.' },
-  { icon: Sparkles, title: 'AI-Powered Assistance', desc: 'AI helps with workflow creation, bulk mapping, course corrections, and credential descriptions.' },
-  { icon: Users, title: 'Team Management', desc: 'Invite faculty, registrars, admin staff with role-based access and audit trails.' },
-  { icon: BarChart3, title: 'Analytics Dashboard', desc: 'Track issuance volumes, verification activity, credential status distribution, and engagement.' },
-  { icon: Scale, title: 'Governance & Compliance', desc: 'Built-in governance for accredited programmes — every credential follows regulatory validation rules.' },
-];
-
 export default function InstitutionFeatures() {
+  const { t } = useTranslation();
   const [visible, setVisible] = useState(false);
   const ref = useRef<HTMLElement>(null);
   useEffect(() => {
@@ -23,13 +13,25 @@ export default function InstitutionFeatures() {
     return () => obs.disconnect();
   }, []);
 
+  const features = [
+    { icon: ShieldCheck, title: t('instFeat.f1.title'), desc: t('instFeat.f1.desc') },
+    { icon: Zap, title: t('instFeat.f2.title'), desc: t('instFeat.f2.desc') },
+    { icon: Settings, title: t('instFeat.f3.title'), desc: t('instFeat.f3.desc') },
+    { icon: Code, title: t('instFeat.f4.title'), desc: t('instFeat.f4.desc') },
+    { icon: Layers, title: t('instFeat.f5.title'), desc: t('instFeat.f5.desc') },
+    { icon: Sparkles, title: t('instFeat.f6.title'), desc: t('instFeat.f6.desc') },
+    { icon: Users, title: t('instFeat.f7.title'), desc: t('instFeat.f7.desc') },
+    { icon: BarChart3, title: t('instFeat.f8.title'), desc: t('instFeat.f8.desc') },
+    { icon: Scale, title: t('instFeat.f9.title'), desc: t('instFeat.f9.desc') },
+  ];
+
   return (
     <section className={styles.section} ref={ref}>
       <div className={`container ${styles.container} ${visible ? styles.animateIn : ''}`}>
         <div className={styles.header}>
-          <span className={styles.eyebrow}>PLATFORM CAPABILITIES</span>
-          <h2 className={styles.headline}>Everything You Need to Issue Trusted Credentials</h2>
-          <p className={styles.sub}>A complete platform for credential issuance, management, and verification.</p>
+          <span className={styles.eyebrow}>{t('instFeat.eyebrow')}</span>
+          <h2 className={styles.headline}>{t('instFeat.headline')}</h2>
+          <p className={styles.sub}>{t('instFeat.sub')}</p>
         </div>
         <div className={styles.grid}>
           {features.map((f, i) => {

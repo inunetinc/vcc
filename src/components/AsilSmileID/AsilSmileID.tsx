@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Fingerprint, Camera, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import { useTranslation } from '../../i18n';
 import styles from './AsilSmileID.module.css';
 
 const features = [
@@ -10,6 +11,7 @@ const features = [
 ];
 
 export default function AsilSmileID() {
+  const { t } = useTranslation();
   const [visible, setVisible] = useState(false);
   const ref = useRef<HTMLElement>(null);
   useEffect(() => {
@@ -22,9 +24,9 @@ export default function AsilSmileID() {
     <section className={styles.section} ref={ref}>
       <div className={`container ${styles.container} ${visible ? styles.animateIn : ''}`}>
         <div className={styles.header}>
-          <span className={styles.eyebrow}>IDENTITY VERIFICATION</span>
-          <h2 className={styles.headline}>Powered by SmileID Verification</h2>
-          <p className={styles.sub}>Your identity is the anchor for all your credentials. SmileID ensures it's real, secure, and uniquely yours.</p>
+          <span className={styles.eyebrow}>{t('asilSmile.eyebrow')}</span>
+          <h2 className={styles.headline}>{t('asilSmile.headline')}</h2>
+          <p className={styles.sub}>{t('asilSmile.sub')}</p>
         </div>
         <div className={styles.grid}>
           {features.map((f, i) => {

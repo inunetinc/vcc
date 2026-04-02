@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { UserPlus, ShieldCheck, Share2 } from 'lucide-react';
+import { useTranslation } from '../../i18n';
 import styles from './AsilHowItWorks.module.css';
 
 const steps = [
@@ -9,6 +10,7 @@ const steps = [
 ];
 
 export default function AsilHowItWorks() {
+  const { t } = useTranslation();
   const [visible, setVisible] = useState(false);
   const ref = useRef<HTMLElement>(null);
   useEffect(() => {
@@ -21,7 +23,7 @@ export default function AsilHowItWorks() {
     <section className={styles.section} ref={ref}>
       <div className={`container ${styles.container} ${visible ? styles.animateIn : ''}`}>
         <div className={styles.header}>
-          <span className={styles.eyebrow}>HOW IT WORKS</span>
+          <span className={styles.eyebrow}>{t('asilHow.eyebrow')}</span>
           <h2 className={styles.headline}>How It Works</h2>
         </div>
         <div className={styles.stepsGrid}>

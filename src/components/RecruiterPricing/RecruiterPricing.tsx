@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Check, ArrowRight } from 'lucide-react';
+import { useTranslation } from '../../i18n';
 import styles from './RecruiterPricing.module.css';
 
 const plans = [
@@ -10,6 +11,7 @@ const plans = [
 ];
 
 export default function RecruiterPricing() {
+  const { t } = useTranslation();
   const [visible, setVisible] = useState(false);
   const ref = useRef<HTMLElement>(null);
   useEffect(() => {
@@ -22,14 +24,14 @@ export default function RecruiterPricing() {
     <section className={styles.section} ref={ref}>
       <div className={`container ${styles.container} ${visible ? styles.animateIn : ''}`}>
         <div className={styles.header}>
-          <span className={styles.eyebrow}>PRICING</span>
-          <h2 className={styles.headline}>Simple, Transparent Pricing</h2>
-          <p className={styles.sub}>Start free. Scale when you're ready.</p>
+          <span className={styles.eyebrow}>{t('instPricing.eyebrow')}</span>
+          <h2 className={styles.headline}>{t('instPricing.headline')}</h2>
+          <p className={styles.sub}>{t('instPricing.sub')}</p>
         </div>
         <div className={styles.grid}>
           {plans.map((p, i) => (
             <div key={i} className={`${styles.card} ${p.highlighted ? styles.highlighted : ''}`}>
-              {p.highlighted && <span className={styles.badge}>Popular</span>}
+              {p.highlighted && <span className={styles.badge}>{t('instPricing.popular')}</span>}
               <h3 className={styles.planName}>{p.name}</h3>
               <p className={styles.planDesc}>{p.desc}</p>
               <div className={styles.priceRow}>

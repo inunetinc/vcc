@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { ChevronDown } from 'lucide-react';
+import { useTranslation } from '../../i18n';
 import styles from './RecruiterFAQ.module.css';
 
 const faqs = [
@@ -12,6 +13,7 @@ const faqs = [
 ];
 
 export default function RecruiterFAQ() {
+  const { t } = useTranslation();
   const [visible, setVisible] = useState(false);
   const [openIdx, setOpenIdx] = useState<number | null>(null);
   const ref = useRef<HTMLElement>(null);
@@ -26,9 +28,9 @@ export default function RecruiterFAQ() {
       <div className={`container ${styles.container} ${visible ? styles.animateIn : ''}`}>
         <div className={styles.layout}>
           <div className={styles.header}>
-            <span className={styles.eyebrow}>FAQ</span>
-            <h2 className={styles.headline}>Frequently Asked Questions</h2>
-            <p className={styles.sub}>Everything you need to know about verifying credentials with VChainCred.</p>
+            <span className={styles.eyebrow}>{t('recFaq.eyebrow')}</span>
+            <h2 className={styles.headline}>{t('recFaq.headline')}</h2>
+            <p className={styles.sub}>{t('recFaq.sub')}</p>
           </div>
           <div className={styles.faqList}>
             {faqs.map((f, i) => (

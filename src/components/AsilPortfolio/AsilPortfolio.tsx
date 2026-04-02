@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { GraduationCap, Briefcase, Award, ScrollText, BadgeCheck, FileText } from 'lucide-react';
+import { useTranslation } from '../../i18n';
 import styles from './AsilPortfolio.module.css';
 
 const items = [
@@ -12,6 +13,7 @@ const items = [
 ];
 
 export default function AsilPortfolio() {
+  const { t } = useTranslation();
   const [visible, setVisible] = useState(false);
   const ref = useRef<HTMLElement>(null);
   useEffect(() => {
@@ -24,9 +26,9 @@ export default function AsilPortfolio() {
     <section className={styles.section} ref={ref}>
       <div className={`container ${styles.container} ${visible ? styles.animateIn : ''}`}>
         <div className={styles.header}>
-          <span className={styles.eyebrow}>YOUR PORTFOLIO</span>
-          <h2 className={styles.headline}>Adopt Your Own Verifiable Record Portfolio</h2>
-          <p className={styles.sub}>Every credential type you need, in one verifiable wallet.</p>
+          <span className={styles.eyebrow}>{t('asilPort.eyebrow')}</span>
+          <h2 className={styles.headline}>{t('asilPort.headline')}</h2>
+          <p className={styles.sub}>{t('asilPort.sub')}</p>
         </div>
         <div className={styles.grid}>
           {items.map((item, i) => {
