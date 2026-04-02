@@ -19,6 +19,16 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const currentLangLabel = langMap.find(l => l.code === language)?.label ?? 'English';
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [mobileOpen]);
+
   useEffect(() => {
     let ticking = false;
     const handleScroll = () => {
@@ -68,7 +78,7 @@ export default function Header() {
       <header className={`${styles.header} ${scrolled ? styles.headerScrolled : ''}`}>
         <div className={`container ${styles.navContainer}`}>
 
-          {/* Left Pill: Logo + Nav Links */}
+          {/* Left Pill: Logo + Nav Links + Hamburger */}
           <div className={styles.mainNavPill}>
             <div className={styles.logoWrapper}>
               <img
@@ -91,6 +101,10 @@ export default function Header() {
               <Link to="/pricing" className={styles.navLink}>{t('header.pricing')}</Link>
               <Link to="/blog" className={styles.navLink}>{t('header.blog')}</Link>
             </nav>
+            {/* Hamburger — visible only on mobile, inside pill for vertical centering */}
+            <button className={styles.hamburger} onClick={() => setMobileOpen(!mobileOpen)} aria-label="Menu">
+              {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
           </div>
 
           {/* Right Pill: Segmented Actions */}
@@ -98,11 +112,6 @@ export default function Header() {
             <Link to="/verify" className={styles.verifyAction}>{t('header.verifyCredential')}</Link>
             <Link to="/pricing" className={styles.primaryAction}>{t('header.getStarted')}</Link>
           </div>
-
-          {/* Hamburger */}
-          <button className={styles.hamburger} onClick={() => setMobileOpen(!mobileOpen)} aria-label="Menu">
-            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
 
         </div>
       </header>
